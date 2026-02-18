@@ -7,15 +7,10 @@ x-base-config: &base-config
   env_file:
     - .llm.env       # API keys (create from .llm.env.example)
   # Uncomment to set default environment variables (will overwrite .llm.env)
-  # environment:
-  #   - OPENAI_API_KEY=${OPENAI_API_KEY:-}
-  #   - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY:-}
-  #   - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
-  #   - GROQ_API_KEY=${GROQ_API_KEY:-}
-  #   - TOGETHER_API_KEY=${TOGETHER_API_KEY:-}
-  #   - MISTRAL_API_KEY=${MISTRAL_API_KEY:-}
-  #   - GEMINI_API_KEY=${GEMINI_API_KEY:-}
-  #   - LLM_PROVIDER=${LLM_PROVIDER:-}  # Optional: Override default provider (e.g., "anthropic/claude-3-opus")
+  environment:
+    - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+    - ANTHROPIC_BASE_URL=${ANTHROPIC_BASE_URL:-https://api.z.ai/api/anthropic}
+    - LLM_PROVIDER=${LLM_PROVIDER:-anthropic/glm-4.7}
   volumes:
     - /dev/shm:/dev/shm  # Chromium performance
   deploy:
